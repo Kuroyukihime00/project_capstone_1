@@ -2,20 +2,20 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PengajuanSuratController;
-use App\Http\Controllers\PersetujuanSuratController;
-
-Route::get('/pengajuan-surat', [PengajuanSuratController::class, 'index']);
-Route::get('/pengajuan-surat/create', [PengajuanSuratController::class, 'create']);
-Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store']);
-
-Route::get('/persetujuan-surat', [PersetujuanSuratController::class, 'index']);
-Route::post('/persetujuan-surat/{id}/approve', [PersetujuanSuratController::class, 'approve']);
-Route::post('/persetujuan-surat/{id}/reject', [PersetujuanSuratController::class, 'reject']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/1', function () {
+    return view('demo/file1');
+});
+Route::get('/2', function () {
+    return view('demo/file2');
+});
+use App\Http\Controllers\DemoController;
+
+Route::get('/3', [DemoController::class, 'index']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
